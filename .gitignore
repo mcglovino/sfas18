@@ -2,3 +2,17 @@ Unity_Project/.vs/Unity_Project/v15/Server/sqlite3/storage.ide-wal
 Unity_Project/.vs/Unity_Project/v15/Server/sqlite3/storage.ide-shm
 Unity_Project/.vs/Unity_Project/v15/Server/sqlite3/storage.ide
 Unity_Project/.vs/Unity_Project/v15/Server/sqlite3/db.lock
+
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+/[Bb]uilds/
+/[Ll]ibrary/
+sysinfo.txt
+*.stackdump
+/Assets/AssetStoreTools*
+*.apk
+*.unitypackage
