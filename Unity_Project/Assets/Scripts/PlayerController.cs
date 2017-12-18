@@ -138,15 +138,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public int GetPlayerNum()
+    //whether to increase self or others score
+    public int GetPlayerNum(bool self)
     {
-        if(m_PlayerInputString == "_P1")
-        {
-            return 1;
+        if (self) {
+            if (m_PlayerInputString == "_P1")
+            {
+                return 1;
+            }
+            else if (m_PlayerInputString == "_P2")
+            {
+                return 2;
+            }
         }
-        else if (m_PlayerInputString == "_P2")
+        else
         {
-            return 2;
+            if (m_PlayerInputString == "_P1")
+            {
+                return 2;
+            }
+            else if (m_PlayerInputString == "_P2")
+            {
+                return 1;
+            }
         }
 
         return 0;
