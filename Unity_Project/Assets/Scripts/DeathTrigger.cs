@@ -16,7 +16,7 @@ public class DeathTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            PController playerController = other.gameObject.GetComponent<PController>();
             if(playerController)
             {
                 // Kill the player

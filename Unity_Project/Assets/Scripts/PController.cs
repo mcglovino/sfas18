@@ -10,6 +10,16 @@ public class PController : MonoBehaviour {
 
     public int speed = 10;
 
+    // The starting position of the player
+    Vector3 spawningPosition = Vector3.zero;
+
+    // Whether the player is alive or not
+    bool isAlive = true;
+
+    // The time it takes to respawn
+    const float maxRespawnTime = 1.0f;
+    float respawnTime = maxRespawnTime;
+
     // Identifier for Input
     [SerializeField]
     public string PlayerInputString = "_P1";
@@ -17,10 +27,21 @@ public class PController : MonoBehaviour {
     void Start () {
         rb = this.GetComponent<Rigidbody>();
         toGround = this.GetComponent<Collider>().bounds.extents.y;
-	}
-	
 
-	void FixedUpdate () {
+        spawningPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        if (!isAlive)
+        {
+            UpdateRespawnTime();
+            return;
+        }
+
+    }
+
+    void FixedUpdate () {
         float moveH = Input.GetAxis("Horizontal" + PlayerInputString);
         float moveV = Input.GetAxis("Vertical" + PlayerInputString);
 
@@ -37,5 +58,57 @@ public class PController : MonoBehaviour {
 
     bool IsGrounded() {
         return Physics.Raycast(transform.position, -Vector3.up, toGround + 1);
+    }
+
+    public void Die()
+    {
+        isAlive = false;
+        respawnTime = maxRespawnTime;
+    }
+
+    void UpdateRespawnTime()
+    {
+        respawnTime -= Time.deltaTime;
+        if (respawnTime < 0.0f)
+        {
+            Respawn();
+        }
+    }
+
+    void Respawn()
+    {
+        isAlive = true;
+        transform.position = spawningPosition;
+        transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    //whether to increase self or others score
+    public int GetPlayerNum(bool self)
+    {
+        if (self)
+        {
+            if (PlayerInputString == "_P1")
+            {
+                return 1;
+            }
+            else if (PlayerInputString == "_P2")
+            {
+                return 2;
+            }
+        }
+        else
+        {
+            if (PlayerInputString == "_P1")
+            {
+                return 2;
+            }
+            else if (PlayerInputString == "_P2")
+            {
+                return 1;
+            }
+        }
+
+        return 0;
     }
 }
