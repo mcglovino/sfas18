@@ -6,7 +6,9 @@ public class PController : MonoBehaviour {
 
     private Rigidbody rb;
 
-    public int speed = 2;
+    float toGround;
+
+    public int speed = 10;
 
     // Identifier for Input
     [SerializeField]
@@ -14,6 +16,7 @@ public class PController : MonoBehaviour {
 
     void Start () {
         rb = this.GetComponent<Rigidbody>();
+        toGround = this.GetComponent<Collider>().bounds.extents.y;
 	}
 	
 
@@ -25,10 +28,14 @@ public class PController : MonoBehaviour {
 
         rb.AddForce(movement * speed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump" + PlayerInputString) && IsGrounded())
         {
-            rb.AddForce(0,10,0);
+            rb.AddForce(Vector3.up * 250);
         }
  
+    }
+
+    bool IsGrounded() {
+        return Physics.Raycast(transform.position, -Vector3.up, toGround + 1);
     }
 }
