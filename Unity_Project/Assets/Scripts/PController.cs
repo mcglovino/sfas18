@@ -39,7 +39,7 @@ public class PController : MonoBehaviour {
             return;
         }
 
-        //when spawn, shoots down.
+        //when spawns, shoots down.
         RaycastHit hit;
         Ray Ray = new Ray(transform.position, -Vector3.up);
 
@@ -47,19 +47,22 @@ public class PController : MonoBehaviour {
         {
             if(hit.distance > 1)
             {
-                transform.position += new Vector3(0, -hit.distance / 3, 0);
+                transform.position += new Vector3(0, -hit.distance / 5, 0);
             }
         }
 
     }
 
     void FixedUpdate () {
-        float moveH = Input.GetAxis("Horizontal" + PlayerInputString);
-        float moveV = Input.GetAxis("Vertical" + PlayerInputString);
 
-        Vector3 movement = new Vector3(moveH, 0.0f, moveV);
+        if (IsGrounded()) {
+            float moveH = Input.GetAxis("Horizontal" + PlayerInputString);
+            float moveV = Input.GetAxis("Vertical" + PlayerInputString);
 
-        rb.AddForce(movement * speed);
+            Vector3 movement = new Vector3(moveH, 0.0f, moveV);
+
+            rb.AddForce(movement * speed);
+        }
 
         /*if (Input.GetButtonDown("Jump" + PlayerInputString) && IsGrounded())
         {
@@ -71,8 +74,8 @@ public class PController : MonoBehaviour {
             if (transform.localScale.x < 2.5)
             {
                 transform.localScale += new Vector3(0.075f, 0.075f, 0.075f);
-                GetComponent<Rigidbody>().mass += 0.1f;
-                speed += 0.3f;
+                GetComponent<Rigidbody>().mass += 0.075f;
+                speed += 0.5f;
             }
         }
         if (Input.GetButton("Fire2" + PlayerInputString))
@@ -80,8 +83,8 @@ public class PController : MonoBehaviour {
             if (transform.localScale.x > 0.4)
             {
                 transform.localScale -= new Vector3(0.075f, 0.075f, 0.075f);
-                GetComponent<Rigidbody>().mass -= 0.1f;
-                speed -= 0.3f;
+                GetComponent<Rigidbody>().mass -= 0.075f;
+                speed -= 0.5f;
             }
         }
 

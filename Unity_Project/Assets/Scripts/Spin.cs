@@ -38,19 +38,17 @@ public class Spin : MonoBehaviour {
 
         //keeps cubes at same height
         RaycastHit hit;
-        Ray Ray = new Ray(transform.position, -Vector3.up);
-
+        Ray Ray = new Ray(transform.position, Vector3.down);
+        Debug.DrawRay(transform.position, new Vector3(0,-10,0), Color.green);
         if (Physics.Raycast(Ray, out hit))
         {
             float hoverError = hoverHeight - hit.distance;
-            transform.position += new Vector3(0, hoverError/3, 0);
+            transform.position += new Vector3(0, hoverError/5, 0);
         }
-        while (!Physics.Raycast(Ray))
+        else
         {
-            float x = Random.Range(-8.5f, 8.5f);
-            float z = Random.Range(-8.5f, 8.5f);
-            transform.position = new Vector3(x, 20, z);
-            transform.rotation = new Quaternion(45, 45, 45, 0);
+            Respawn();
+            Debug.Log("respawn");
         }
     }
 
@@ -93,14 +91,5 @@ public class Spin : MonoBehaviour {
         float z = Random.Range(-8.5f, 8.5f);
         transform.position = new Vector3(x, 20, z);
         transform.rotation = new Quaternion(45, 45, 45, 0);
-        //so they down spawn over holes
-        /*Ray Ray = new Ray(transform.position, -Vector3.up);
-        while (!Physics.Raycast(Ray))
-        {
-            x = Random.Range(-8.5f, 8.5f);
-            z = Random.Range(-8.5f, 8.5f);
-            transform.position = new Vector3(x, 20, z);
-            transform.rotation = new Quaternion(45, 45, 45, 0);
-        }*/
     }
 }
