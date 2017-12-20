@@ -58,18 +58,18 @@ public class PController : MonoBehaviour {
         {
             if (transform.localScale.x < 2.5)
             {
-                transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                transform.localScale += new Vector3(0.075f, 0.075f, 0.075f);
                 GetComponent<Rigidbody>().mass += 0.1f;
-                speed += 0.5f;
+                speed += 0.3f;
             }
         }
         if (Input.GetButton("Fire2" + PlayerInputString))
         {
             if (transform.localScale.x > 0.4)
             {
-                transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                transform.localScale -= new Vector3(0.075f, 0.075f, 0.075f);
                 GetComponent<Rigidbody>().mass -= 0.1f;
-                speed -= 0.5f;
+                speed -= 0.3f;
             }
         }
 

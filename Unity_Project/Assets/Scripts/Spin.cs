@@ -18,6 +18,10 @@ public class Spin : MonoBehaviour {
     public delegate void PlayerCollect(int playerNum);
     public static event PlayerCollect OnCollect;
 
+    //used by smoothdamp
+    private Vector3 velocity;
+    public float smoothTime = 0.6f;
+
     void Start()
     {
         SpawningPosition = transform.position;
@@ -39,7 +43,14 @@ public class Spin : MonoBehaviour {
         if (Physics.Raycast(Ray, out hit))
         {
             float hoverError = hoverHeight - hit.distance;
-            transform.position += new Vector3(0, hoverError, 0);
+            transform.position += new Vector3(0, hoverError/3, 0);
+        }
+        while (!Physics.Raycast(Ray))
+        {
+            float x = Random.Range(-8.5f, 8.5f);
+            float z = Random.Range(-8.5f, 8.5f);
+            transform.position = new Vector3(x, 20, z);
+            transform.rotation = new Quaternion(45, 45, 45, 0);
         }
     }
 
@@ -48,7 +59,7 @@ public class Spin : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            PController playerController = other.gameObject.GetComponent<PController>();
             if (playerController)
             {
                 // Increase the score for player
@@ -78,7 +89,18 @@ public class Spin : MonoBehaviour {
         isActive = true;
         this.gameObject.GetComponent<Renderer>().enabled = true;
         this.gameObject.GetComponent<Collider>().enabled = true;
-        transform.position = SpawningPosition;
+        float x = Random.Range(-8.5f, 8.5f);
+        float z = Random.Range(-8.5f, 8.5f);
+        transform.position = new Vector3(x, 20, z);
         transform.rotation = new Quaternion(45, 45, 45, 0);
+        //so they down spawn over holes
+        /*Ray Ray = new Ray(transform.position, -Vector3.up);
+        while (!Physics.Raycast(Ray))
+        {
+            x = Random.Range(-8.5f, 8.5f);
+            z = Random.Range(-8.5f, 8.5f);
+            transform.position = new Vector3(x, 20, z);
+            transform.rotation = new Quaternion(45, 45, 45, 0);
+        }*/
     }
 }
