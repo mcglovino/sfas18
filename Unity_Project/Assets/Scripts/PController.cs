@@ -51,13 +51,13 @@ public class PController : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump" + PlayerInputString) && IsGrounded())
         {
-            rb.AddForce(Vector3.up * 250);
+            rb.AddForce(Vector3.up * 500);
         }
  
     }
 
     bool IsGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, toGround + 1);
+        return Physics.Raycast(transform.position, -Vector3.up, toGround + 0.75f);
     }
 
     public void Die()

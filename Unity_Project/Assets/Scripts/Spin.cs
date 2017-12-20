@@ -11,6 +11,8 @@ public class Spin : MonoBehaviour {
     public float MAX_RESPAWN_TIME = 2.0f;
     float RespawnTime;
 
+    public float hoverHeight = 1f;
+
     Vector3 SpawningPosition;
 
     public delegate void PlayerCollect(int playerNum);
@@ -28,6 +30,16 @@ public class Spin : MonoBehaviour {
         if (!isActive)
         {
             UpdateRespawnTime();
+        }
+
+        //keeps cubes at same height
+        RaycastHit hit;
+        Ray Ray = new Ray(transform.position, -Vector3.up);
+
+        if (Physics.Raycast(Ray, out hit))
+        {
+            float hoverError = hoverHeight - hit.distance;
+            transform.position += new Vector3(0, hoverError, 0);
         }
     }
 
