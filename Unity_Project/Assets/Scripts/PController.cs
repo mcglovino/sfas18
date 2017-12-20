@@ -39,6 +39,18 @@ public class PController : MonoBehaviour {
             return;
         }
 
+        //when spawn, shoots down.
+        RaycastHit hit;
+        Ray Ray = new Ray(transform.position, -Vector3.up);
+
+        if (Physics.Raycast(Ray, out hit))
+        {
+            if(hit.distance > 1)
+            {
+                transform.position += new Vector3(0, -hit.distance / 3, 0);
+            }
+        }
+
     }
 
     void FixedUpdate () {
