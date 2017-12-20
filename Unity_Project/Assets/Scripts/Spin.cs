@@ -40,15 +40,17 @@ public class Spin : MonoBehaviour {
         RaycastHit hit;
         Ray Ray = new Ray(transform.position, Vector3.down);
         Debug.DrawRay(transform.position, new Vector3(0,-10,0), Color.green);
-        if (Physics.Raycast(Ray, out hit))
+        if (Physics.Raycast(Ray, out hit, Mathf.Infinity))
         {
             float hoverError = hoverHeight - hit.distance;
             transform.position += new Vector3(0, hoverError/5, 0);
+            if(isActive)
+                this.gameObject.GetComponent<Renderer>().enabled = true;
         }
         else
         {
             Respawn();
-            Debug.Log("respawn");
+            Debug.Log(hit.distance);
         }
     }
 
@@ -85,7 +87,6 @@ public class Spin : MonoBehaviour {
     void Respawn()
     {
         isActive = true;
-        this.gameObject.GetComponent<Renderer>().enabled = true;
         this.gameObject.GetComponent<Collider>().enabled = true;
         float x = Random.Range(-8.5f, 8.5f);
         float z = Random.Range(-8.5f, 8.5f);
