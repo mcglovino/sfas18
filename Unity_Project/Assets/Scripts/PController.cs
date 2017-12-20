@@ -8,7 +8,7 @@ public class PController : MonoBehaviour {
 
     float toGround;
 
-    public int speed = 10;
+    public float speed = 10;
 
     // The starting position of the player
     Vector3 spawningPosition = Vector3.zero;
@@ -49,11 +49,31 @@ public class PController : MonoBehaviour {
 
         rb.AddForce(movement * speed);
 
-        if (Input.GetButtonDown("Jump" + PlayerInputString) && IsGrounded())
+        /*if (Input.GetButtonDown("Jump" + PlayerInputString) && IsGrounded())
         {
             rb.AddForce(Vector3.up * 500);
+        }*/
+
+        if (Input.GetButton("Fire1" + PlayerInputString))
+        {
+            if (transform.localScale.x < 2.5)
+            {
+                transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                GetComponent<Rigidbody>().mass += 0.1f;
+                speed += 0.5f;
+            }
         }
- 
+        if (Input.GetButton("Fire2" + PlayerInputString))
+        {
+            if (transform.localScale.x > 0.4)
+            {
+                transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                GetComponent<Rigidbody>().mass -= 0.1f;
+                speed -= 0.5f;
+            }
+        }
+
+
     }
 
     bool IsGrounded() {
