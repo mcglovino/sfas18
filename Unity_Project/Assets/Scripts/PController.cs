@@ -45,7 +45,7 @@ public class PController : MonoBehaviour {
 
         if (Physics.Raycast(Ray, out hit))
         {
-            if(hit.distance > 1)
+            if(hit.distance > 2)
             {
                 transform.position += new Vector3(0, -hit.distance / 5, 0);
             }
@@ -71,20 +71,20 @@ public class PController : MonoBehaviour {
 
         if (Input.GetButton("Fire1" + PlayerInputString))
         {
-            if (transform.localScale.x < 2.5)
+            if (transform.localScale.x < 1.5)
             {
                 transform.localScale += new Vector3(0.075f, 0.075f, 0.075f);
                 GetComponent<Rigidbody>().mass += 0.075f;
-                speed += 0.5f;
+                speed += 0.3f;
             }
         }
         if (Input.GetButton("Fire2" + PlayerInputString))
         {
-            if (transform.localScale.x > 0.4)
+            if (transform.localScale.x > 0.5)
             {
                 transform.localScale -= new Vector3(0.075f, 0.075f, 0.075f);
                 GetComponent<Rigidbody>().mass -= 0.075f;
-                speed -= 0.5f;
+                speed -= 0.3f;
             }
         }
 

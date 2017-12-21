@@ -6,7 +6,7 @@ public class Tilt : MonoBehaviour
 {    
     public static List<Collision> Colliders;
 
-    public float AngleLimit = 15.0f;
+    public float AngleLimit = 10.0f;
     public float AreaSize = 10.0f;
 
     void Start()
@@ -24,8 +24,8 @@ public class Tilt : MonoBehaviour
             foreach (Collision col in Colliders)
             {
                 count++;
-                Xsum += col.transform.position.x;
-                Zsum += col.transform.position.z;
+                Xsum += col.transform.position.x * (col.gameObject.GetComponent<Rigidbody>().mass / 3);
+                Zsum += col.transform.position.z * (col.gameObject.GetComponent<Rigidbody>().mass / 3);
             }
             
             //Finds the average of all the colliders
