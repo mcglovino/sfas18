@@ -6,8 +6,9 @@ public class Tilt : MonoBehaviour
 {    
     public static List<Collision> Colliders;
 
-    public float AngleLimit = 10.0f;
+    public float AngleLimit = 15.0f;
     public float AreaSize = 10.0f;
+
 
     void Start()
     {
@@ -24,20 +25,22 @@ public class Tilt : MonoBehaviour
             foreach (Collision col in Colliders)
             {
                 count++;
-                Xsum += col.transform.position.x * (col.gameObject.GetComponent<Rigidbody>().mass / 3);
-                Zsum += col.transform.position.z * (col.gameObject.GetComponent<Rigidbody>().mass / 3);
+                Xsum += col.transform.position.x * (col.gameObject.GetComponent<Rigidbody>().mass / 2);
+                Zsum += col.transform.position.z * (col.gameObject.GetComponent<Rigidbody>().mass / 2);
             }
-            
+
             //Finds the average of all the colliders
-            Xave = Xsum/count;
+            Xave = Xsum / count;
             Zave = Zsum / count;
-        
+
             //Changes range from size of area to the amount off angles i want to rotate
             Xrot = Xave * AngleLimit / AreaSize;
             Zrot = Zave * AngleLimit / AreaSize;
-        
+
+
             //Rotates by the angles
-            transform.eulerAngles = new Vector3(Zrot, 0, -Xrot);
+            Vector3 NewEuler = new Vector3(Zrot, 0, -Xrot);
+            transform.eulerAngles = NewEuler;
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PController : MonoBehaviour {
 
     private Rigidbody rb;
+    private float mass;
 
     float toGround;
 
@@ -31,12 +32,19 @@ public class PController : MonoBehaviour {
         spawningPosition = transform.position;
     }
 
-    private void Update()
+
+    void Update()
     {
+        //for smoothing the tilt
         if (!isAlive)
         {
             UpdateRespawnTime();
+            rb.mass -= 0.05f;
             return;
+        }
+        if ((mass > rb.mass) && IsGrounded())
+        {
+            rb.mass += 0.05f;
         }
 
         //when spawns, shoots down.
@@ -99,6 +107,7 @@ public class PController : MonoBehaviour {
     {
         isAlive = false;
         respawnTime = maxRespawnTime;
+        mass = rb.mass;
     }
 
     void UpdateRespawnTime()
@@ -114,8 +123,10 @@ public class PController : MonoBehaviour {
     {
         isAlive = true;
         transform.position = spawningPosition;
+        //transform.position = Vector3.MoveTowards(transform.position, spawningPosition, 10000 * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //rb.mass = mass;
     }
 
     //whether to increase self or others score
