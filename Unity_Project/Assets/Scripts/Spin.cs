@@ -50,7 +50,6 @@ public class Spin : MonoBehaviour {
         else
         {
             Respawn();
-            Debug.Log(hit.distance);
         }
     }
 
