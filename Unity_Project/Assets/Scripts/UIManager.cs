@@ -21,6 +21,19 @@ public class UIManager : MonoBehaviour
 
     // --------------------------------------------------------------
 
+    public Slider p1Slider;
+    public Slider p2Slider;
+    public GameObject p1Fill;
+    public GameObject p2Fill;
+
+    private void Start()
+    {
+        p1Slider.value = 0;
+        p2Slider.value = 0;
+        p1Fill.SetActive(false);
+        p2Fill.SetActive(false);
+    }
+
     void OnEnable()
     {
         DeathTrigger.OnPlayerDeath += OnUpdateScore;
@@ -30,7 +43,18 @@ public class UIManager : MonoBehaviour
     void OnDisable()
     {
         DeathTrigger.OnPlayerDeath -= OnUpdateScore;
-        Spin.OnCollect += OnUpdateScore;
+        Spin.OnCollect -= OnUpdateScore;
+    }
+
+    private void Update()
+    {
+        p1Slider.value = m_Player1Score;
+        p2Slider.value = m_Player2Score;
+        if (m_Player1Score > 0)
+            p1Fill.SetActive(true);
+        if (m_Player2Score > 0)
+            p2Fill.SetActive(true);
+
     }
 
     void OnUpdateScore(int playerNum)
