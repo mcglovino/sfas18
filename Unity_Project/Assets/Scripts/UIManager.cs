@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,6 +55,16 @@ public class UIManager : MonoBehaviour
             p1Fill.SetActive(true);
         if (m_Player2Score > 0)
             p2Fill.SetActive(true);
+        if (m_Player1Score == 25)
+        {
+            SceneInfo.Win = 1;
+            SceneManager.LoadScene(1);
+        }
+        if (m_Player2Score == 25)
+        {
+            SceneInfo.Win = 2;
+            SceneManager.LoadScene(1);
+        }
 
     }
 
