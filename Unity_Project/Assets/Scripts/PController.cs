@@ -42,7 +42,7 @@ public class PController : MonoBehaviour {
             rb.mass -= 0.05f;
             return;
         }
-        if ((mass > rb.mass) && IsGrounded())
+        if ((mass > rb.mass))
         {
             rb.mass += 0.05f;
         }
