@@ -39,12 +39,11 @@ public class PController : MonoBehaviour {
         if (!isAlive)
         {
             UpdateRespawnTime();
-            rb.mass -= 0.05f;
-            return;
+            rb.mass -= 0.1f;
         }
-        if ((mass > rb.mass))
+        else if ((mass > rb.mass))
         {
-            rb.mass += 0.05f;
+            rb.mass += 0.1f;
         }
 
         //when spawns, shoots down.
@@ -82,7 +81,7 @@ public class PController : MonoBehaviour {
             if (transform.localScale.x < 1.5)
             {
                 transform.localScale += new Vector3(0.075f, 0.075f, 0.075f);
-                GetComponent<Rigidbody>().mass += 0.075f;
+                rb.mass += 0.075f;
                 speed += 0.3f;
             }
         }
@@ -91,7 +90,7 @@ public class PController : MonoBehaviour {
             if (transform.localScale.x > 0.5)
             {
                 transform.localScale -= new Vector3(0.075f, 0.075f, 0.075f);
-                GetComponent<Rigidbody>().mass -= 0.075f;
+                rb.mass -= 0.075f;
                 speed -= 0.3f;
             }
         }
@@ -125,7 +124,7 @@ public class PController : MonoBehaviour {
         transform.position = spawningPosition;
         //transform.position = Vector3.MoveTowards(transform.position, spawningPosition, 10000 * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
         //rb.mass = mass;
     }
 

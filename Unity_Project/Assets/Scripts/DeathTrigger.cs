@@ -29,5 +29,14 @@ public class DeathTrigger : MonoBehaviour
                 }
             }
         }
+
+        if (other.gameObject.tag == "Falling")
+        {
+            Falling fall = other.gameObject.GetComponent<Falling>();
+            if (fall)
+            {
+                fall.Die();
+            }
+        }
     }
 }

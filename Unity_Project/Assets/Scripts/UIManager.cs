@@ -58,12 +58,12 @@ public class UIManager : MonoBehaviour
         if (m_Player1Score == 25)
         {
             SceneInfo.Win = 1;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         if (m_Player2Score == 25)
         {
             SceneInfo.Win = 2;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
     }
