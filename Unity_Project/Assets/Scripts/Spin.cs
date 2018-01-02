@@ -13,8 +13,6 @@ public class Spin : MonoBehaviour {
 
     public float hoverHeight = 1f;
 
-    Vector3 SpawningPosition;
-
     public delegate void PlayerCollect(int playerNum);
     public static event PlayerCollect OnCollect;
 
@@ -24,7 +22,6 @@ public class Spin : MonoBehaviour {
 
     void Start()
     {
-        SpawningPosition = transform.position;
         RespawnTime = MAX_RESPAWN_TIME;
     }
 
