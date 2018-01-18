@@ -30,8 +30,4 @@ public class PlayerLoad : MonoBehaviour {
             }
         }
 	}
-	
-	void Update () {
-		
-	}
 }

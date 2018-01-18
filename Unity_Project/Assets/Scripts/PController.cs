@@ -24,11 +24,33 @@ public class PController : MonoBehaviour {
     [SerializeField]
     public string PlayerInputString = "_P1";
 
+    public Material cyan;
+    public Material red;
+
     void Start () {
         rb = this.GetComponent<Rigidbody>();
         toGround = this.GetComponent<Collider>().bounds.extents.y;
 
         spawningPosition = transform.position;
+
+        if (PlayerInputString == "_P1")
+        {
+            if (SceneInfo.Material_P1 != null)
+            {
+                this.gameObject.GetComponent<Renderer>().material = SceneInfo.Material_P1;
+            }
+            else
+                this.gameObject.GetComponent<Renderer>().material = cyan;
+        }
+        if (PlayerInputString == "_P2")
+        {
+            if (SceneInfo.Material_P2 != null)
+            {
+                this.gameObject.GetComponent<Renderer>().material = SceneInfo.Material_P2;
+            }
+            else
+                this.gameObject.GetComponent<Renderer>().material = red;
+        }
     }
 
 

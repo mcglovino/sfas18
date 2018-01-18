@@ -27,12 +27,26 @@ public class UIManager : MonoBehaviour
     public GameObject p1Fill;
     public GameObject p2Fill;
 
+    public GameObject score_P1;
+    public GameObject score_P2;
+
     private void Start()
     {
         p1Slider.value = 0;
         p2Slider.value = 0;
         p1Fill.SetActive(false);
         p2Fill.SetActive(false);
+
+        if (SceneInfo.Material_P2 != null)
+        {
+            score_P2.GetComponent<Text>().color = SceneInfo.Material_P2.color;
+            p2Fill.GetComponent<Image>().color = SceneInfo.Material_P2.color;
+        }
+        if (SceneInfo.Material_P1 != null)
+        {
+            score_P1.GetComponent<Text>().color = SceneInfo.Material_P1.color;
+            p1Fill.GetComponent<Image>().color = SceneInfo.Material_P1.color;
+        }
     }
 
     void OnEnable()
@@ -58,12 +72,12 @@ public class UIManager : MonoBehaviour
         if (m_Player1Score == 25)
         {
             SceneInfo.Win = 1;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         if (m_Player2Score == 25)
         {
             SceneInfo.Win = 2;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
 
     }
