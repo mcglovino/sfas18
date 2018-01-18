@@ -272,6 +272,7 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\CollisionInfo.cs" />
+    <Compile Include="Assets\Scripts\ColourChange.cs" />
     <Compile Include="Assets\Scripts\DeathTrigger.cs" />
     <Compile Include="Assets\Scripts\Falling.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
