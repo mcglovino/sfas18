@@ -8,4 +8,9 @@ public class CollisionInfo : MonoBehaviour {
     {
         transform.parent.gameObject.GetComponent<Tilt>().OnCollisionEnterChild(other);
     }
+
+    private void OnCollisionExit(Collision other)
+    {
+        transform.parent.gameObject.GetComponent<Tilt>().OnCollisionExitChild(other);
+    }
 }

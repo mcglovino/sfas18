@@ -148,7 +148,9 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-99dedb8a471da61fab4bdbf2b456492b Assembly-CSharp.dll:.Tilt
+413639db1c524519ccb43a3800ba778c Assembly-CSharp.dll:.Tilt
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.GerstnerDisplace
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
 7fc8da10760d35317fb56962007d218e Assembly-CSharp.dll:.UIManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MainMenu
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Falling

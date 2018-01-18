@@ -5,22 +5,38 @@ using System.Collections.Generic;
 public class Tilt : MonoBehaviour
 {    
     public static List<GameObject> Colliders;
-    public GameObject[] fallings;
+    public GameObject[] players;
 
     public float AngleLimit = 15.0f;
     public float AreaSize = 10.0f;
+
+    public float smooth = 0.1f;
 
 
     void Start()
     {
         Colliders = new List<GameObject>();
 
-        fallings = GameObject.FindGameObjectsWithTag("Falling");
-        foreach (GameObject obj in fallings)
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject obj in players)
         {
             Colliders.Add(obj.gameObject);
         }
     }
+
+    float Smooth(float num, float num2)
+    {
+        if (num2 < num)
+        {
+            num2 += smooth;
+        }
+        else if (num2 > num) {
+            num2 -= smooth;
+        }
+        return num2;
+    }
+
+    float Xrot2, Zrot2;
 
     void FixedUpdate()
     {
@@ -44,9 +60,11 @@ public class Tilt : MonoBehaviour
             Xrot = Xave * AngleLimit / AreaSize;
             Zrot = Zave * AngleLimit / AreaSize;
 
+            Xrot2 = Smooth(Xrot, Xrot2);
+            Zrot2 = Smooth(Zrot, Zrot2);
 
             //Rotates by the angles
-            Vector3 NewEuler = new Vector3(Zrot, 0, -Xrot);
+            Vector3 NewEuler = new Vector3(Zrot2, 0, -Xrot2);
             transform.eulerAngles = NewEuler;
         }
     }
@@ -54,19 +72,39 @@ public class Tilt : MonoBehaviour
     //gets collision info from children
     public void OnCollisionEnterChild(Collision other)
     {
-        //adds objects to list of collisions
-        //only if it isnt already there
-        bool same = false;
+        if (Colliders.Count == 0)
+        {
+            Colliders.Add(other.gameObject);
+        }
+        else
+        {
+            //adds objects to list of collisions
+            //only if it isnt already there
+            bool same = false;
+            foreach (GameObject col in Colliders)
+            {
+                if (other.gameObject != col)
+                {
+                    same = true;
+                }
+            }
+            if (same == false)
+            {
+                Colliders.Add(other.gameObject);
+            }
+        }
+    }
+    public void OnCollisionExitChild(Collision other)
+    {
+        //removes objects from the list of collisions
         foreach (GameObject col in Colliders)
         {
             if (other.gameObject == col)
             {
-                same = true;
+                //col.gameObject.GetComponent<Rigidbody>().mass = 0;
+                Colliders.Remove(col.gameObject);
+                break;
             }
-        }
-        if (same == false)
-        {
-            Colliders.Add(other.gameObject);
         }
     }
 }
