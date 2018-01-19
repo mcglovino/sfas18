@@ -27,7 +27,7 @@ public class PController : MonoBehaviour {
     public Material cyan;
     public Material red;
 
-    void Start () {
+    public void Start () {
         rb = this.GetComponent<Rigidbody>();
         toGround = this.GetComponent<Collider>().bounds.extents.y;
 

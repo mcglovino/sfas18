@@ -11,6 +11,10 @@ public class PlayerLoad : MonoBehaviour {
 
 	void Start () {
 
+        //Was previously selecting the colour of players before i changed thier colour
+        P1.GetComponent<PController>().Start();
+        P2.GetComponent<PController>().Start();
+
         if (SceneInfo.Win == 1)
         {
             P1.SetActive(true);

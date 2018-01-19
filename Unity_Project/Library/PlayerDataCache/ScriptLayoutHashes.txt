@@ -154,4 +154,4 @@ f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.
 ae0291da718e13118be105e1c887afd0 Assembly-CSharp.dll:.Tilt
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.GerstnerDisplace
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
-7fc8da10760d35317fb56962007d218e Assembly-CSharp.dll:.UIManager
+7523887b9d4f3049ff0199d2cb1f5600 Assembly-CSharp.dll:.UIManager
