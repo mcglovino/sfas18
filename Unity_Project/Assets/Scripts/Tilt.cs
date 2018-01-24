@@ -22,6 +22,21 @@ public class Tilt : MonoBehaviour
         {
             Colliders.Add(obj.gameObject);
         }
+
+        //Makes a mesh that is the same as all children
+        MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
+        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+        for (int i = 0; i < meshFilters.Length; i++)
+        {
+            combine[i].mesh = meshFilters[i].sharedMesh;
+            combine[i].transform = meshFilters[i].transform.localToWorldMatrix;
+            meshFilters[i].gameObject.SetActive(false);
+        }
+        transform.GetComponent<MeshFilter>().mesh = new Mesh();
+        transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
+        transform.GetComponent<MeshCollider>().sharedMesh = new Mesh();
+        transform.GetComponent<MeshCollider>().sharedMesh.CombineMeshes(combine);
+        transform.gameObject.SetActive(true);
     }
 
     float Smooth(float num, float num2)
@@ -48,8 +63,8 @@ public class Tilt : MonoBehaviour
             foreach (GameObject col in Colliders)
             {
                 count++;
-                Xsum += col.transform.position.x * (col.GetComponent<Rigidbody>().mass / 2);
-                Zsum += col.transform.position.z * (col.GetComponent<Rigidbody>().mass / 2);
+                Xsum += col.transform.position.x * (col.GetComponent<Rigidbody>().mass / 1.5f);
+                Zsum += col.transform.position.z * (col.GetComponent<Rigidbody>().mass / 1.5f);
             }
 
             //Finds the average of all the colliders
@@ -69,8 +84,7 @@ public class Tilt : MonoBehaviour
         }
     }
 
-    //gets collision info from children
-    public void OnCollisionEnterChild(Collision other)
+    public void OnCollisionEnter(Collision other)
     {
         if (Colliders.Count == 0)
         {
@@ -94,7 +108,7 @@ public class Tilt : MonoBehaviour
             }
         }
     }
-    public void OnCollisionExitChild(Collision other)
+    public void OnCollisionExit(Collision other)
     {
         //removes objects from the list of collisions
         foreach (GameObject col in Colliders)

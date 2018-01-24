@@ -12,7 +12,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-2a72356c235a148f7609e4a046261e26 Assembly-CSharp.dll:.MainMenu
+e849d23be56654a653737bcff3dbf82c Assembly-CSharp.dll:.MainMenu
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -155,3 +155,4 @@ ae0291da718e13118be105e1c887afd0 Assembly-CSharp.dll:.Tilt
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.GerstnerDisplace
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
 7523887b9d4f3049ff0199d2cb1f5600 Assembly-CSharp.dll:.UIManager
+6177015b4bee91ed3d792236d2fc6262 Assembly-CSharp.dll:.LevelSelect
