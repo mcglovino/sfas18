@@ -7,6 +7,7 @@ public class CameraTarget : MonoBehaviour {
     //list of targets instead of jus the two
     //more futureproof if more are to be added
     public List<Transform> targets;
+    public Transform P2;
 
     //for move
     public Vector3 offset;
@@ -70,5 +71,10 @@ public class CameraTarget : MonoBehaviour {
             }
             return bounds.center;
         }
+    }
+
+    public void Practice()
+    {
+        targets.Remove(P2);
     }
 }

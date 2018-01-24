@@ -30,8 +30,6 @@ public class UIManager : MonoBehaviour
     public GameObject score_P1;
     public GameObject score_P2;
 
-    public GameObject pause;
-
     private void Start()
     {
         p1Slider.value = 0;
@@ -71,7 +69,7 @@ public class UIManager : MonoBehaviour
             p1Fill.SetActive(true);
         if (m_Player2Score > 0)
             p2Fill.SetActive(true);
-        if (m_Player1Score == 25)
+        if (m_Player1Score == 1)
         {
             SceneInfo.Win = 1;
             SceneManager.LoadScene(3);
@@ -81,21 +79,6 @@ public class UIManager : MonoBehaviour
             SceneInfo.Win = 2;
             SceneManager.LoadScene(3);
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pause.activeSelf)
-            {
-                pause.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                pause.SetActive(true);
-                Time.timeScale = 0;
-            }
-        }
-
     }
 
     void OnUpdateScore(int playerNum)
@@ -110,17 +93,5 @@ public class UIManager : MonoBehaviour
             m_Player2Score += 1;
             m_Player2ScoreText.text = "" + m_Player2Score;
         }
-    }
-
-    public void MainMenu()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(0);
-    }
-
-    public void Return()
-    {
-        pause.SetActive(false);
-        Time.timeScale = 1;
     }
 }

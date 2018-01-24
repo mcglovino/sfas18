@@ -8,6 +8,8 @@ public static class SceneInfo {
 
     private static int level;
 
+    private static bool practice;
+
     private static Material mat1;
     private static Material mat2;
 
@@ -32,6 +34,18 @@ public static class SceneInfo {
         set
         {
             level = value;
+        }
+    }
+
+    public static bool Practice
+    {
+        get
+        {
+            return practice;
+        }
+        set
+        {
+            practice = value;
         }
     }
 

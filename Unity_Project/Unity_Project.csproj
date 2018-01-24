@@ -276,9 +276,11 @@
     <Compile Include="Assets\Scripts\DeathTrigger.cs" />
     <Compile Include="Assets\Scripts\Falling.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerLoad.cs" />
+    <Compile Include="Assets\Scripts\PracticeMode.cs" />
     <Compile Include="Assets\Scripts\SceneInfo.cs" />
     <Compile Include="Assets\Scripts\Spin.cs" />
     <Compile Include="Assets\Scripts\Tilt.cs" />
