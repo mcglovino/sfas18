@@ -67,6 +67,7 @@ public class MainMenu : MonoBehaviour {
 
     public void Quality(int qual)
     {
+        SceneInfo.Quality = qual;
         QualitySettings.SetQualityLevel(qual, true);
         if (qual == 0 || qual == 1 || qual == 2)
         {
