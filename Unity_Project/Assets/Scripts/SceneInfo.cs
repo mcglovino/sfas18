@@ -6,6 +6,8 @@ public static class SceneInfo {
 
     private static int winner;
 
+    private static int level;
+
     private static Material mat1;
     private static Material mat2;
 
@@ -18,6 +20,18 @@ public static class SceneInfo {
         set
         {
             winner = value;
+        }
+    }
+
+    public static int Level
+    {
+        get
+        {
+            return level;
+        }
+        set
+        {
+            level = value;
         }
     }
 
