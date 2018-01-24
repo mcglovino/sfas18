@@ -1,5 +1,5 @@
 WindowsStandalone
-e9479b5e53845f96d6f9b3d3e2b040c3 Assembly-CSharp.dll:.CameraTarget
+657954d086aaf62200d4119cd03a0bd2 Assembly-CSharp.dll:.CameraTarget
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -12,7 +12,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-e849d23be56654a653737bcff3dbf82c Assembly-CSharp.dll:.MainMenu
+4965d516216c353298fa385ae3f939cd Assembly-CSharp.dll:.MainMenu
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -137,7 +137,6 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 4d46f5a1d73135ce2423f5e8b9ff91c2 Assembly-CSharp.dll:.PlayerController
 2c62b9ae79b8b54dd7b55fa7d311452b Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.Water
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DeathTrigger
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CollisionInfo
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 2a56361227def9f56c2cf57a88b32f4d UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -156,3 +155,6 @@ ae0291da718e13118be105e1c887afd0 Assembly-CSharp.dll:.Tilt
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterTile
 7523887b9d4f3049ff0199d2cb1f5600 Assembly-CSharp.dll:.UIManager
 6177015b4bee91ed3d792236d2fc6262 Assembly-CSharp.dll:.LevelSelect
+9041388db858a93538f1f127d6fd243d Assembly-CSharp.dll:.PracticeMode
+378a751272a505324682f068c8025acb Assembly-CSharp.dll:.PauseMenu
+feeac7dbee180a27e5fa4944efafe778 Assembly-CSharp.dll:.Quailty

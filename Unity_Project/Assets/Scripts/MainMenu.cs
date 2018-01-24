@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour {
     public GameObject camera;
     public GameObject camera2;
 
+    void Start()
+    {
+        SceneInfo.Quality = 5;
+    }
+
     public void Practice()
     {
         if (levels2.activeSelf == false)
