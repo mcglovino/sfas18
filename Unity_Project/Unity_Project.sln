@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity_Project", "Unity_Project.csproj", "{A26F1BAE-E301-B09D-C53B-F5CE6B0FAE3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity_Project.Plugins", "Unity_Project.Plugins.csproj", "{BF9F225E-E23E-37C4-5940-178DC5384E29}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity_Project.Editor", "Unity_Project.Editor.csproj", "{2453BA1C-0BDD-1154-C646-5C4A2E499FD4}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{A26F1BAE-E301-B09D-C53B-F5CE6B0FAE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A26F1BAE-E301-B09D-C53B-F5CE6B0FAE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A26F1BAE-E301-B09D-C53B-F5CE6B0FAE3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF9F225E-E23E-37C4-5940-178DC5384E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF9F225E-E23E-37C4-5940-178DC5384E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF9F225E-E23E-37C4-5940-178DC5384E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF9F225E-E23E-37C4-5940-178DC5384E29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2453BA1C-0BDD-1154-C646-5C4A2E499FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2453BA1C-0BDD-1154-C646-5C4A2E499FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2453BA1C-0BDD-1154-C646-5C4A2E499FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
